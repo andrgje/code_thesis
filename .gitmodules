@@ -1,0 +1,3 @@
+[submodule "EAST"]
+	path = EAST
+	url = https://github.com/argman/EAST.git
