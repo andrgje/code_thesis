@@ -1,0 +1,6 @@
+[submodule "EAST"]
+	path = EAST
+	url = https://github.com/andrgje/EAST
+[submodule "mmocr"]
+	path = mmocr
+	url = https://github.com/andrgje/mmocr
