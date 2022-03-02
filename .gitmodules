@@ -1,6 +1,0 @@
-[submodule "EAST"]
-	path = EAST
-	url = https://github.com/argman/EAST.git
-[submodule "mmocr"]
-	path = mmocr
-	url = https://github.com/open-mmlab/mmocr.git
