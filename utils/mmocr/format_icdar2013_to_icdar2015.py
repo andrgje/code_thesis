@@ -4,6 +4,7 @@ import argparse
 parser = argparse.ArgumentParser()
 
 parser.add_argument('--directory',type=str,required=True)
+parser.add_argument('--set', help="which set, training or test", type=str)
 
 args=parser.parse_args()
 directory=args.directory
@@ -24,8 +25,14 @@ for file in os.listdir(directory):
 			labels.append(line[4])
 
 		f.close()
-		#For training: filepath = filepath.replace("gt","img")
-		f=open(filepath,'w')
+		if(args.set=='training'):
+		 filepath = filepath.replace("gt","img")
+		elif (args.set=='test'):
+			filepath = filepath.replace("gt_", "")
+		else:
+			print("--set argument must be either 'training' or 'set'")
+			exit()
+		f=open(filepath,'w+')
 		counter = 0
 		for i,label in enumerate(labels):
 			x1 = coordinates[counter]
