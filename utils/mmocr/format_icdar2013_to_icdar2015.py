@@ -19,19 +19,31 @@ for file in os.listdir(directory):
 		labels=[]
 		
 		for line in lines:
-			line = line.split(', ')
+			if(args.set=='test'):
+				split = ', '
+			elif(args.set=='training'):
+				split=' '
+			else:
+				print("--set argument must be either 'training' or 'set'")
+				exit()
+			
+			line = line.split(split)
 			for i in range(4):
 				coordinates.append(int(line[i]))
 			labels.append(line[4])
 
 		f.close()
+		"""
 		if(args.set=='training'):
-		 filepath = filepath.replace("gt","img")
+			filepath = filepath.replace("gt","img")
+			
 		elif (args.set=='test'):
-			filepath = filepath.replace("gt_", "")
+			filepath = filepath.replace("img_", "")
+
 		else:
 			print("--set argument must be either 'training' or 'set'")
 			exit()
+		"""
 		f=open(filepath,'w+')
 		counter = 0
 		for i,label in enumerate(labels):
